@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+<title>Calculator</title>
+<script src=calc.js defer></script>
+</head>
+<body>
+    <div id=display></div>
+    <div id=calcContainer>
+        <div id=numContainer>
+            
+            <button id=num1 class=cBtn onclick='updateDisplay(1)' class=num>1</button>
+            <button id=num2 class=cBtn onclick='updateDisplay(2)' class=num>2</button>
+            <button id=num3 class=cBtn onclick='updateDisplay(3)' class=num>3</button>
+            <button id=num4 class=cBtn onclick='updateDisplay(4)' class=num>4</button>
+            <button id=num5 class=cBtn onclick='updateDisplay(5)' class=num>5</button>
+            <button id=num6 class=cBtn onclick='updateDisplay(6)' class=num>6</button>
+            <button id=num7 class=cBtn onclick='updateDisplay(7)' class=num>7</button>
+            <button id=num8 class=cBtn onclick='updateDisplay(8)' class=num>8</button>
+            <button id=num9 class=cBtn onclick='updateDisplay(9)' class=num>9</button>
+            <button id=num0 class=cBtn onclick='updateDisplay(0)' class=num>0</button>
+        </div>
+    <button class=cBtn class=operator onclick='updateDisplay("+")'>+</button>
+    <button class=cBtn class=operator onclick='updateDisplay("-")'>-</button>
+    <button class=cBtn class=operator onclick='updateDisplay("*")'>*</button>
+    <button class=cBtn class=operator onclick='updateDisplay("/")'>/</button>
+    <button class=cBtn>=</button>
+    <button class=cBtn>clear</button>
+    </div>
+</body>
+</html>
