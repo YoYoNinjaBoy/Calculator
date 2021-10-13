@@ -47,7 +47,7 @@ function equals(){
     else if (array[1]==='/'){
         operator=divide;
     }
-    else{alert(array)}
+    else{alert('negatives bad me bad hit clear')}
     num1=parseFloat(array[0]);
     num2=parseFloat(array[2]);
     display.innerText=operate(operator,num1,num2)
