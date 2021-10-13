@@ -1,3 +1,4 @@
+const display=document.getElementById('display');
 function add(x,y){
     return x+y;
 };
@@ -28,29 +29,77 @@ function clear(){
 };
 
 function equals(){
-    const display=document.getElementById('display');
     array=display.innerText.split(/(?=[\+\-\*\/])|(?<=[\+\-\*\/])/g)
+    if (array[0==='-']){
+        array[0].concat(array[1])
+    }
     if (array[1]==='+'){
-        op=add;
+        operator=add;
     }
     
     
     else if(array[1]==='-'){
-        op=subtract;
+        operator=subtract;
     }
     else if(array[1]==='*'){
-        op=multiply;
+        operator=multiply;
     }
     else if (array[1]==='/'){
-        op=divide;
+        operator=divide;
     }
     else{alert(array)}
     num1=parseFloat(array[0]);
     num2=parseFloat(array[2]);
-    display.innerText=operate(op,num1,num2)
+    display.innerText=operate(operator,num1,num2)
     
 };
 const equalsBtn=document.getElementById('equalsBtn');
 equalsBtn.addEventListener('click',function(){equals()
-    
-});
+    });
+const addBtn=document.getElementById('plusBtn');
+addBtn.addEventListener('click',function(){
+    if (
+        display.innerText.includes('\+')===true ||
+        display.innerText.includes('\-')===true ||
+        display.innerText.includes('\*')===true ||
+        display.innerText.includes('\/')===true){
+    equals()
+    }
+    updateDisplay("+")}
+)
+
+const subBtn=document.getElementById('minusBtn');
+subBtn.addEventListener('click',function(){
+    if (
+        display.innerText.includes('\+')===true ||
+        display.innerText.includes('\-')===true ||
+        display.innerText.includes('\*')===true ||
+        display.innerText.includes('\/')===true){
+    equals()
+    }
+    updateDisplay("-")}
+)
+
+const divBtn=document.getElementById('divideBtn');
+divBtn.addEventListener('click',function(){
+    if (
+        display.innerText.includes('\+')===true ||
+        display.innerText.includes('\-')===true ||
+        display.innerText.includes('\*')===true ||
+        display.innerText.includes('\/')===true){
+    equals()
+    }
+    updateDisplay("/")}
+)
+
+const mulBtn=document.getElementById('timesBtn');
+mulBtn.addEventListener('click',function(){
+    if (
+        display.innerText.includes('\+')===true ||
+        display.innerText.includes('\-')===true ||
+        display.innerText.includes('\*')===true ||
+        display.innerText.includes('\/')===true){
+    equals()
+    }
+    updateDisplay("*")}
+)
