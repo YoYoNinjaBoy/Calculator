@@ -103,3 +103,7 @@ mulBtn.addEventListener('click',function(){
     }
     updateDisplay("*")}
 )
+const clrBtn=document.getElementById('clearBtn');
+clrBtn.addEventListener('click',function(){
+    display.innerText=''
+})
