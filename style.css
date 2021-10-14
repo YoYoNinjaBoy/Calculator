@@ -3,6 +3,13 @@
     font-size:43px;
     min-height:100px;
 }
+
+#display2{
+    text-align: center;
+    font-size:16px;
+    min-height:40px;
+}
+
 #calcContainer{
     display:box;
     margin-left:auto;
