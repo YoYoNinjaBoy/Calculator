@@ -1,5 +1,9 @@
 # Calculator
 
+This project was done as a learning excercise with no codebase or reference.
+
+
+
 Project Instructions:
 
 
