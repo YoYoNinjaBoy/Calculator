@@ -43,6 +43,7 @@ function trueClear(){
     num1=undefined;
     num2=undefined;
     operator=undefined;
+    equalsPressed=false;
 }
 function migrateDisplay(operator){
 display2.textContent=display.textContent+operator;
