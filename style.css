@@ -1,34 +1,47 @@
+body{
+    background-color:black;
+}
+#padding{
+    height: 10px;
+    background-color: grey;
+}
 #display{
-    text-align: center;
+    background-color:white;
+    text-align: right;
+    padding-right:15px;
     font-size:43px;
-    min-height:100px;
+    min-height:70px;
 }
 
 #display2{
-    text-align: center;
+    background-color:white;
+    color:black;
+    text-align: right;
+    padding-top:10px;
+    padding-right:15px;
     font-size:16px;
     min-height:40px;
 }
 
 #calcContainer{
+    margin-top:100px;
     display:box;
     margin-left:auto;
     margin-right:auto;
+    width:700px;
+    border:solid grey 15px;
 }
 
 #numContainer{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:repeat(4, 1fr);
     height:700px;
     width:700px;
     margin-left:auto;
     margin-right:auto;
 }
-
-.operator{
-    display:box;
-    position:relative
-    
+#numb0{
+    display:block;
 }
 .cBtn{
    display:flexbox;
