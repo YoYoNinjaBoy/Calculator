@@ -1,11 +1,14 @@
+//declarations
 const display=document.getElementById('display');
 const display2=document.getElementById('display2');
 let equalsPressed=false;
 let num1=undefined;
 let num2=undefined;
-display.innerText=0
+let displayInitialized=false;
+let operationPerformed=false;
+display.innerText='0'
 
-
+//functions
 function add(x,y){
     return x+y;
 };
@@ -27,15 +30,12 @@ return operator(num1,num2);
 
 
 function updateDisplay(value){
-    if (display.innerText==='0'){
-        display.innerText=value;
-    }
-    else{
-    display.innerText+=value;
-    }
+    displayInitialized===false ? display.innerText=value : display.innerText+=value;
+    displayInitialized=true;
 }; 
 function clear(){
-    display.innerText='';
+    displayInitialized=false;
+    operationPerformed=true;
 };
 function trueClear(){
     display.innerText='0';
@@ -44,22 +44,50 @@ function trueClear(){
     num2=undefined;
     operator=undefined;
     equalsPressed=false;
+    displayInitialized=false;
+    operationPerformed=false;
 }
 function migrateDisplay(operator){
-display2.textContent=display.textContent+operator;
+    display2.textContent=display.textContent+operator;
+}
+function equals(){
+    if(displayInitialized===true){
+        num2=parseFloat(display.innerText);
+        migrateDisplay('');
+        num1=operate(operator,num1,num2);
+        display.innerText=num1;
+        //holds together the fabric of spacetime
+        if(num1===Infinity){
+            alert('You have destroyed the fabric of space-time');
+            trueClear();
+            }
+        num1=undefined;
+        num2=undefined;
+        displayInitialized=false;
+    }
+};
+function opEquals(){
+    if(displayInitialized===true){
+    num2=parseFloat(display.innerText);
+    migrateDisplay('');
+    num1=operate(operator,num1,num2);
+    display.innerText=num1;
+    num2=undefined;
+    displayInitialized=false;
+    //holds together the fabric of spacetime
+    if(num1===Infinity){
+        alert('You have destroyed the fabric of space-time');
+        trueClear();
+        }
+}
 }
 
+
+//buttons
 const equalsBtn=document.getElementById('equalsBtn');
 equalsBtn.addEventListener('click',function(){
-    if(equalsPressed===true){
-
-    }
-    else if(display.innerText===''){
-        
-    }
-    else{
+    if(isNaN(num1)===false && isNaN(num2)===true){
     equals();
-    equalsPressed=true;
     }
 });
 
@@ -71,21 +99,11 @@ addBtn.addEventListener('click',function(){
         migrateDisplay('+');
         clear();
     }
-    else if(equalsPressed===true){
-        equalsPressed=false;
-        operator=add;
-        migrateDisplay('+');
-        clear();
-    }
     else if (isNaN(num1)===false && isNaN(num2)===true){
-        operator=add;
-        display2.innerText=display2.innerText.replace(/[-x/]/g,'+');
-    }
-    else{
-        equals();
-        migrateDisplay('+');
-        clear();
-        operator=add;
+            opEquals();
+            operator=add;
+            migrateDisplay('+');
+            clear();
     }
 }
 )
@@ -98,21 +116,12 @@ subBtn.addEventListener('click',function(){
         migrateDisplay('-');
         clear();
     }
-    else if(equalsPressed===true){
-        equalsPressed=false;
+    else if (isNaN(num1)===false && isNaN(num2)===true ){
+        opEquals();
         operator=subtract;
         migrateDisplay('-');
         clear();
-    }
-    else if (isNaN(num1)===false && isNaN(num2)===true){
-        operator=subtract;
-        display2.innerText=display2.innerText.replace(/[+x/]/g,'-');
-    }
-    else{
-        equals();
-        migrateDisplay('-');
-        clear();
-        operator=subtract;
+    
     }
 }
 )
@@ -125,22 +134,14 @@ divBtn.addEventListener('click',function(){
         migrateDisplay('/');
         clear();
     }
-    else if(equalsPressed===true){
-        equalsPressed=false;
-        operator=divide;
-        migrateDisplay('/');
-        clear();
-    }
+    
     else if (isNaN(num1)===false && isNaN(num2)===true){
+        opEquals();
         operator=divide;
-        display2.innerText=display2.innerText.replace(/[+x-]/g,'/');
-    }
-    else{
-        equals();
         migrateDisplay('/');
         clear();
-        operator=divide;
     }
+    
 }
 )
 
@@ -152,33 +153,18 @@ mulBtn.addEventListener('click',function(){
         migrateDisplay('x');
         clear();
     }
-    else if(equalsPressed===true){
-        equalsPressed=false;
-        operator=multiply;
-        migrateDisplay('x');
-        clear();
-    }
+    
     else if (isNaN(num1)===false && isNaN(num2)===true){
+        opEquals();
         operator=multiply;
-        display2.innerText=display2.innerText.replace(/[+/-]/g,'x');
-    }
-    else{
-        equals();
         migrateDisplay('x');
         clear();
-        operator=multiply;
     }
-}
+}  
 )
 
 const clrBtn=document.getElementById('clearBtn');
 clrBtn.addEventListener('click',function(){
     trueClear();
 })
-function equals(){
-    num2=parseFloat(display.innerText);
-    migrateDisplay('');
-    display.innerText=operate(operator,num1,num2);
-    num1=parseFloat(display.innerText);
-    num2=undefined;
-};
+
