@@ -61,7 +61,7 @@ function migrateDisplay(operator){
 }
 function equals(){
     if(displayInitialized===true){
-        x=display.innerText.replace(',','');
+        x=display.innerText.replaceAll(',','');
         num2=parseFloat(x);
         migrateDisplay('');
         num1=operate(operator,num1,num2);
@@ -78,7 +78,7 @@ function equals(){
 };
 function opEquals(){
     if(displayInitialized===true){
-        x=display.innerText.replace(',','');
+        x=display.innerText.replaceAll(',','');
         num2=parseFloat(x);
     migrateDisplay('');
     num1=operate(operator,num1,num2);
@@ -105,7 +105,7 @@ equalsBtn.addEventListener('click',function(){
 const addBtn=document.getElementById('plusBtn');
 addBtn.addEventListener('click',function(){
     if (num1===undefined){
-        x=display.innerText.replace(',','');
+        x=display.innerText.replaceAll(',','');
         num1=parseFloat(x);
         operator=add;
         migrateDisplay('+');
@@ -123,7 +123,7 @@ addBtn.addEventListener('click',function(){
 const subBtn=document.getElementById('minusBtn');
 subBtn.addEventListener('click',function(){
     if (num1===undefined){
-        x=display.innerText.replace(',','');
+        x=display.innerText.replaceAll(',','');
         num1=parseFloat(x);
         operator=subtract;
         migrateDisplay('-');
@@ -142,7 +142,7 @@ subBtn.addEventListener('click',function(){
 const divBtn=document.getElementById('divideBtn');
 divBtn.addEventListener('click',function(){
     if (num1===undefined){
-        x=display.innerText.replace(',','');
+        x=display.innerText.replaceAll(',','');
         num1=parseFloat(x);
         operator=divide;
         migrateDisplay('/');
@@ -162,7 +162,7 @@ divBtn.addEventListener('click',function(){
 const mulBtn=document.getElementById('timesBtn');
 mulBtn.addEventListener('click',function(){
     if (num1===undefined){
-        x=display.innerText.replace(',','');
+        x=display.innerText.replaceAll(',','');
         num1=parseFloat(x);
         operator=multiply;
         migrateDisplay('x');
