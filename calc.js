@@ -30,16 +30,7 @@ return operator(num1,num2);
 
 
 function updateDisplay(value){
-    if (displayInitialized===false){
-        x=value.toString();
-        display.innerText=x;
-    }
-    else{
-        x+=value.toString();
-        display.innerText=parseFloat(x).toLocaleString()
-
-    }
-    //displayInitialized===false ? display.innerText=value : x+=value, display.innerText=x.toLocaleString();
+    displayInitialized===false ? display.innerText=value : display.innerText+=value;
     displayInitialized=true;
 }; 
 function clear(){
@@ -61,11 +52,10 @@ function migrateDisplay(operator){
 }
 function equals(){
     if(displayInitialized===true){
-        x=display.innerText.replaceAll(',','');
-        num2=parseFloat(x);
+        num2=parseFloat(display.innerText);
         migrateDisplay('');
         num1=operate(operator,num1,num2);
-        display.innerText=num1.toLocaleString();
+        display.innerText=num1;
         //holds together the fabric of spacetime
         if(num1===Infinity){
             alert('You have destroyed the fabric of space-time');
@@ -78,11 +68,10 @@ function equals(){
 };
 function opEquals(){
     if(displayInitialized===true){
-        x=display.innerText.replaceAll(',','');
-        num2=parseFloat(x);
+    num2=parseFloat(display.innerText);
     migrateDisplay('');
     num1=operate(operator,num1,num2);
-    display.innerText=num1.toLocaleString();
+    display.innerText=num1;
     num2=undefined;
     displayInitialized=false;
     //holds together the fabric of spacetime
@@ -105,8 +94,7 @@ equalsBtn.addEventListener('click',function(){
 const addBtn=document.getElementById('plusBtn');
 addBtn.addEventListener('click',function(){
     if (num1===undefined){
-        x=display.innerText.replaceAll(',','');
-        num1=parseFloat(x);
+        num1=parseFloat(display.innerText)
         operator=add;
         migrateDisplay('+');
         clear();
@@ -123,8 +111,7 @@ addBtn.addEventListener('click',function(){
 const subBtn=document.getElementById('minusBtn');
 subBtn.addEventListener('click',function(){
     if (num1===undefined){
-        x=display.innerText.replaceAll(',','');
-        num1=parseFloat(x);
+        num1=parseFloat(display.innerText)
         operator=subtract;
         migrateDisplay('-');
         clear();
@@ -142,8 +129,7 @@ subBtn.addEventListener('click',function(){
 const divBtn=document.getElementById('divideBtn');
 divBtn.addEventListener('click',function(){
     if (num1===undefined){
-        x=display.innerText.replaceAll(',','');
-        num1=parseFloat(x);
+        num1=parseFloat(display.innerText)
         operator=divide;
         migrateDisplay('/');
         clear();
@@ -162,8 +148,7 @@ divBtn.addEventListener('click',function(){
 const mulBtn=document.getElementById('timesBtn');
 mulBtn.addEventListener('click',function(){
     if (num1===undefined){
-        x=display.innerText.replaceAll(',','');
-        num1=parseFloat(x);
+        num1=parseFloat(display.innerText)
         operator=multiply;
         migrateDisplay('x');
         clear();
