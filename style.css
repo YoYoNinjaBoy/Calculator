@@ -1,8 +1,4 @@
 body{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
     background-color:black;
 }
 #padding{
@@ -44,10 +40,6 @@ body{
     margin-left:auto;
     margin-right:auto;
 }
-
-#numb0{
-    display:block;
-}
 .cBtn{
     display:flexbox;
     font-size:32px;
@@ -56,6 +48,9 @@ body{
 }
 .notNum{
     background-color:rgb(170, 180, 180);
+}
+.notNum:hover{
+    background-color:rgb(145, 153, 153)
 }
 #bsClr{
     background-color:grey;
@@ -69,5 +64,8 @@ body{
     width:200px;
     border:black 2px solid;
     border-radius:0%;
-    background-color:indianred
+    background-color:indianred;
+}
+.xtra:hover{
+    background-color:rgb(167, 77, 77);
 }
