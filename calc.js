@@ -32,6 +32,7 @@ return operator(num1,num2);
 function updateDisplay(value){
     displayInitialized===false ? display.innerText=value : display.innerText+=value;
     displayInitialized=true;
+    operationPerformed=false;
 }; 
 function clear(){
     displayInitialized=false;
@@ -84,6 +85,20 @@ function opEquals(){
 
 
 //buttons
+const backSpaceBtn=document.getElementById('backSpaceBtn')
+backSpaceBtn.addEventListener('click', function(){
+   if(operationPerformed===false){
+       display.innerText=display.innerText.slice(0, -1)
+    };
+})
+
+const decimalBtn=document.getElementById('decimalBtn');
+decimalBtn.addEventListener('click', function(){
+    if (display.textContent.includes('.')===false){
+        updateDisplay('.');
+    }
+})
+
 const equalsBtn=document.getElementById('equalsBtn');
 equalsBtn.addEventListener('click',function(){
     if(isNaN(num1)===false && isNaN(num2)===true){
